@@ -34,4 +34,13 @@ public class GeekDao {
 		return query.getResultList();		
 	}
 	
+	public Geek findOneGeek(int monId){
+		String jpql = "SELECT distinct g FROM Geek g "
+				+ " left join fetch g.mesInterets mi "
+				+ " WHERE g.unIdGeek = :monId";
+		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);	
+		query.setParameter("monId", monId);
+		return query.getSingleResult();
+	}
+	
 }
