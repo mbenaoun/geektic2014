@@ -29,6 +29,7 @@ public class Geek {
 	@Column(name="PATHAVATAR_GEEK")
 	public String unTreeAvatar;
 	
+	@ManyToMany
 	@JoinTable(
 		      name="GEEK_CENTRES_INTERET",
 		      joinColumns={@JoinColumn(name="ID_GEEK", referencedColumnName="unIdGeek")},
