@@ -1,0 +1,13 @@
+<p><img src="http://www.gravatar.com/avatar/{{geek.unTreeAvatar}}"></p>
+			     <p class="text-info">{{ geek.unPrenom }} {{ geek.unNom }}</p>	
+			     <p> Age: {{geek.unAge}} ans. </p>
+			     <p> mail: {{geek.unMail}}</p>
+			     <p> Centres d'interet: </p>	
+			     <ul>     		
+			     	<li ng-repeat="interet in geek.mesInterets">
+			     		{{ interet.unInteret }}
+			     	</li>	
+			     </ul>
+			     <a ng-href="/">Nouvelle recherche...</a>
+    
+    

@@ -1,6 +1,6 @@
 var app = angular.module("geektic", ['ngRoute']);
 
-app.controller('HelloCtrl', function($scope, $http) {
+app.controller('MainCtrl', function($scope, $http) {
 	$scope.alimenterComboInterets = function()
 	{
 		$http.get('/geek/interetsListe').success(function(interets) {
@@ -25,3 +25,21 @@ app.controller('HelloCtrl', function($scope, $http) {
 		}
     };    
 });
+
+app.controller('GeekCtrl', function($scope, $http, $routeParams) {
+	$http.get('/geek/' + $routeParams.id).success(function(geek) {
+        $scope.geek = geek;
+    });	
+});
+app.config(function($routeProvider){
+	  $routeProvider
+	    .when('/', {
+	      templateUrl: 'view/main.html',
+	      controller: 'MainCtrl'
+	    })
+	    .when('/geek/:id', {
+		      templateUrl: 'view/geek.html',
+		      controller: 'GeekCtrl'
+		    })
+	    .otherwise('/');
+	});
