@@ -11,8 +11,28 @@ public class Interet {
 	
 	@Id
 	@Column(name="ID_INTERET")
-	public int unIdInteret;
+	private int unIdInteret;
 	
 	@Column(name="INTERET")
-	public String unInteret;
+	private String unInteret;
+
+	public int getUnIdInteret() {
+		return unIdInteret;
+	}
+
+	public void setUnIdInteret(int unIdInteret) {
+		this.unIdInteret = unIdInteret;
+	}
+
+	public String getUnInteret() {
+		return unInteret;
+	}
+
+	public void setUnInteret(String unInteret) {
+		this.unInteret = unInteret;
+	}
+	
+	
+	
+	
 }
