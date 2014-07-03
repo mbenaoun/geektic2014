@@ -35,6 +35,11 @@ public class GeekService {
 		return this.monGeekDao.findGeekByCriteria(leSexe, unInteret);
 	}
 	
+	@RequestMapping(method = RequestMethod.GET , value = "/{id}")
+	public Geek getOneGeek(@PathVariable("id") int unId){
+		return this.monGeekDao.findOneGeek(unId);
+	}
+	
 	@RequestMapping(method = RequestMethod.GET , value = "/interetsListe")
 	public List<Interet> getAllInteret(){
 		return this.monInteretDao.findAllInteret();

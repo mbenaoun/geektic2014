@@ -16,8 +16,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequestMapping("/api/hello")
 public class HelloService {
 
-    @RequestMapping(method = GET)
-    public HelloMessage sayHello() {
-        return new HelloMessage();
-    }
+	@RequestMapping(method = GET)
+	public HelloMessage sayHello() {
+		return new HelloMessage();
+	}
 }
