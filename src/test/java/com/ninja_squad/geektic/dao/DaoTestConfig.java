@@ -24,45 +24,45 @@ import javax.sql.DataSource;
 @ComponentScan("com.ninja_squad.geektic.dao")
 public class DaoTestConfig {
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean emf() {
-        LocalContainerEntityManagerFactoryBean result = new LocalContainerEntityManagerFactoryBean();
-        result.setPersistenceUnitName("GEEKTIC");
-        result.setDataSource(dataSource());
-        result.setPersistenceProviderClass(HibernatePersistenceProvider.class);
-        return result;
-    }
+	@Bean
+	public LocalContainerEntityManagerFactoryBean emf() {
+		LocalContainerEntityManagerFactoryBean result = new LocalContainerEntityManagerFactoryBean();
+		result.setPersistenceUnitName("GEEKTIC");
+		result.setDataSource(dataSource());
+		result.setPersistenceProviderClass(HibernatePersistenceProvider.class);
+		return result;
+	}
 
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource("jdbc:hsqldb:hsql://localhost/GEEKTIC", "sa", "");
-        dataSource.setDriverClassName("org.hsqldb.jdbc.JDBCDriver");
-        return dataSource;
-    }
+	@Bean
+	public DataSource dataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource("jdbc:hsqldb:hsql://localhost/GEEKTIC", "sa", "");
+		dataSource.setDriverClassName("org.hsqldb.jdbc.JDBCDriver");
+		return dataSource;
+	}
 
-    /**
-     * Creates a Spring transaction manager
-     */
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        JpaTransactionManager txManager = new JpaTransactionManager();
-        txManager.setEntityManagerFactory(emf().getObject());
-        return txManager;
-    }
+	/**
+	 * Creates a Spring transaction manager
+	 */
+	@Bean
+	public PlatformTransactionManager transactionManager() {
+		JpaTransactionManager txManager = new JpaTransactionManager();
+		txManager.setEntityManagerFactory(emf().getObject());
+		return txManager;
+	}
 
-    /**
-     * The singleton DbSetupTracker used to populate the database
-     */
-    @Bean
-    public DbSetupTracker dbSetupTracker() {
-        return new DbSetupTracker();
-    }
+	/**
+	 * The singleton DbSetupTracker used to populate the database
+	 */
+	@Bean
+	public DbSetupTracker dbSetupTracker() {
+		return new DbSetupTracker();
+	}
 
-    /**
-     * The singleton DbSetup destination
-     */
-    @Bean
-    public Destination destination() {
-        return new DataSourceDestination(dataSource());
-    }
+	/**
+	 * The singleton DbSetup destination
+	 */
+	@Bean
+	public Destination destination() {
+		return new DataSourceDestination(dataSource());
+	}
 }
