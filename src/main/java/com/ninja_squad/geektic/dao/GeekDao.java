@@ -17,13 +17,14 @@ public class GeekDao {
 	@PersistenceContext
 	private EntityManager em;
 
-	public List<Geek> findGeekByCriteria(String unSexe, String unInteret){
-		String jpql = "SELECT g FROM Geek g"
-				+ "join Interet i"
-				+ "WHERE g.unSexe =:unSexe AND i.unInteret =: unInteret";
+	public List<Geek> findGeekByCriteria(String unSexe, int unIdInteret){
+		String jpql = "SELECT distinct g FROM Geek g "
+				+ "left join fetch g.mesInterets mi "
+				+ "inner join g.mesInterets i "
+				+ "WHERE g.unSexe =:unSexe AND i.unIdInteret =:unIdInteret";
 		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);		
 		query.setParameter("unSexe", unSexe);
-		query.setParameter("unInteret", unInteret);
+		query.setParameter("unIdInteret", unIdInteret);
 		return query.getResultList();		
 	}
 
@@ -33,9 +34,4 @@ public class GeekDao {
 		return query.getResultList();		
 	}
 	
-	public List<Interet> findAllInteret(){
-		String jpql = "SELECT i FROM Interet i";
-		TypedQuery<Interet> query = em.createQuery(jpql, Interet.class);
-		return query.getResultList();
-	}
 }
