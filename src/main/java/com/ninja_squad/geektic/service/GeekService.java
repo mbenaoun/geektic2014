@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ninja_squad.geektic.bean.Geek;
+import com.ninja_squad.geektic.bean.Interet;
 import com.ninja_squad.geektic.dao.GeekDao;
+import com.ninja_squad.geektic.dao.InteretDao;
 
 @RestController
 @Transactional
@@ -20,13 +22,21 @@ public class GeekService {
 
 	GeekDao monGeekDao; 
 	
+	InteretDao monInteretDao;
+	
 	@Autowired
-	public GeekService(GeekDao unGeekDao){
+	public GeekService(GeekDao unGeekDao, InteretDao unInteretDao){
 		this.monGeekDao = unGeekDao;
+		this.monInteretDao = unInteretDao;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET , value = "/{sexe}/{interet}")
-	public List<Geek> getGeeksBySexe(@PathVariable("sexe") String leSexe, @PathVariable("interet") String unInteret){
+	public List<Geek> getGeeksBySexe(@PathVariable("sexe") String leSexe, @PathVariable("interet") int unInteret){
 		return this.monGeekDao.findGeekByCriteria(leSexe, unInteret);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET , value = "/interetsListe")
+	public List<Interet> getAllInteret(){
+		return this.monInteretDao.findAllInteret();
 	}
 }
