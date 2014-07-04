@@ -27,7 +27,7 @@ public class GeekService {
 	@Autowired
 	public GeekService(IGeekDao unGeekDao, IInteretDao unInteretDao){
 		this.monGeekDao = unGeekDao;
-		this.monInteretDao = unInteretDao;
+		this.monInteretDao = unInteretDao;	
 	}
 	
 	@RequestMapping(method = RequestMethod.GET , value = "/{sexe}/{interet}")
