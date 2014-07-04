@@ -15,7 +15,7 @@ app.controller('MainCtrl', function($scope, $http) {
     {
 		if ($scope.sexe == "" || $scope.sexe == null)
 			{
-				alert("Vous avez oubliez de selectionner un sex !!!!!");
+				alert("Vous avez oubliez de selectionner un sexe !!!!!");
 				return;
 			}
 		else {
