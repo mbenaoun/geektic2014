@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.ninja_squad.geektic.bean.Interet;
 
 @Repository
-public class InteretDao {
+public class InteretDao implements IInteretDao {
 	
 	@PersistenceContext
 	private EntityManager em;

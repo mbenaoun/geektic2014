@@ -12,7 +12,7 @@ import com.ninja_squad.geektic.bean.Geek;
 import com.ninja_squad.geektic.bean.Interet;
 
 @Repository
-public class GeekDao {
+public class GeekDao implements IGeekDao {
 	
 	@PersistenceContext
 	private EntityManager em;
