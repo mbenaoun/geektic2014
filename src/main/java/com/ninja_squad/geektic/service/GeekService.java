@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ninja_squad.geektic.bean.Geek;
 import com.ninja_squad.geektic.bean.Interet;
-import com.ninja_squad.geektic.dao.GeekDao;
-import com.ninja_squad.geektic.dao.InteretDao;
+import com.ninja_squad.geektic.dao.IGeekDao;
+import com.ninja_squad.geektic.dao.IInteretDao;
 
 @RestController
 @Transactional
 @RequestMapping("/geek")
 public class GeekService {
 
-	GeekDao monGeekDao; 
+	IGeekDao monGeekDao; 
 	
-	InteretDao monInteretDao;
+	IInteretDao monInteretDao;
 	
 	@Autowired
-	public GeekService(GeekDao unGeekDao, InteretDao unInteretDao){
+	public GeekService(IGeekDao unGeekDao, IInteretDao unInteretDao){
 		this.monGeekDao = unGeekDao;
 		this.monInteretDao = unInteretDao;
 	}

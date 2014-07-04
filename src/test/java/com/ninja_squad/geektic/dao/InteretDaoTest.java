@@ -11,11 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.ninja_squad.dbsetup.DbSetup;
 import com.ninja_squad.dbsetup.Operations;
 import com.ninja_squad.dbsetup.operation.Operation;
-import com.ninja_squad.geektic.bean.Geek;
+import com.ninja_squad.geektic.bean.Interet;
 
-public class GeekDaoTest extends BaseDaoTest{
+public class InteretDaoTest  extends BaseDaoTest{
 	@Autowired
-	private GeekDao monGeekDao;
+	private InteretDao monInteretDao;
 
 	@Before
 	public void populateDatabase() {
@@ -41,23 +41,10 @@ public class GeekDaoTest extends BaseDaoTest{
 		DbSetup dbSetup = new DbSetup(destination, operation);
 		dbSetup.launch();
 	}
+
 	@Test
-	public void testGetAllGeeks(){
-		List<Geek> list = monGeekDao.findAllGeeks();
-		assertEquals(3, list.size());
-	}
-	@Test
-	public void testGetGeeksByCiteria() {
-		List<Geek> list = monGeekDao.findGeekByCriteria("M", 0);
-		assertEquals(1, list.size());
-		assertEquals(1, list.get(0).getUnIdGeek());
-		assertEquals(2, list.get(0).getMesInterets().size());
-		// implement your test here, by calling the exampleDao method to test.
-	}
-	
-	@Test
-	public void testGetOneGeek(){
-		Geek unGeek = monGeekDao.findOneGeek(1);
-		assertEquals("jacques", unGeek.getUnNom());
+	public void testGetAllInterets() {
+		List<Interet> list = monInteretDao.findAllInteret();
+		assertEquals(2, list.size());
 	}
 }
