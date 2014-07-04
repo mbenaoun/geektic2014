@@ -1,13 +1,79 @@
-<p><img src="http://www.gravatar.com/avatar/{{geek.unTreeAvatar}}"></p>
-			     <p class="text-info">{{ geek.unPrenom }} {{ geek.unNom }}</p>	
-			     <p> Age: {{geek.unAge}} ans. </p>
-			     <p> mail: {{geek.unMail}}</p>
-			     <p> Centres d'interet: </p>	
-			     <ul>     		
-			     	<li ng-repeat="interet in geek.mesInterets">
-			     		{{ interet.unInteret }}
-			     	</li>	
-			     </ul>
-			     <a ng-href="/">Nouvelle recherche...</a>
-    
-    
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+	<div class="row">
+
+
+
+
+
+		<div
+			class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{ geek.unPrenom }} {{ geek.unNom }}</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3 col-lg-3 " align="center">
+							<img alt="User Pic"
+								src="http://www.gravatar.com/avatar/{{geek.unTreeAvatar}}"
+								class="img-circle">
+						</div>
+
+						<div class=" col-md-9 col-lg-9 ">
+							<table class="table table-user-information">
+								<tbody>
+									<tr>
+										<td>Age:</td>
+										<td>{{geek.unAge}} ans.</td>
+									</tr>
+									<tr>
+										<td>Mail:</td>
+										<td><a href="mailto:{{geek.unMail}}">{{geek.unMail}}</a></td>
+									</tr>
+									<tr>
+										<td>Centres d'interet:</td>
+										<td><ul>
+												<li ng-repeat="interet in geek.mesInterets">{{
+													interet.unInteret }}</li>
+											</ul></td>
+									</tr>
+
+
+
+
+
+
+								</tbody>
+							</table>
+
+							<a href="#" class="btn btn-primary">I Like</a>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<a href="mailto:{{geek.unMail}}"
+						data-original-title="Envoyer message" data-toggle="tooltip"
+						type="button" class="btn btn-sm btn-primary"><i
+						class="glyphicon glyphicon-envelope"></i></a> <span class="pull-right">
+						<a href="#" data-original-title="Retour en arrière"
+						data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i
+							class="glyphicon glyphicon-remove"></i></a>
+					</span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
